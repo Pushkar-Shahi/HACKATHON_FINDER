@@ -25,7 +25,7 @@
 		{
 			"binding": "DB",
 			"database_name": "hackradar-db",
-			"database_id": "00000000-0000-0000-0000-000000000000",
+			"database_id": "7305f3cd-8ab2-4e65-9665-cdef515999a3",
 			"migrations_dir": "drizzle/migrations"
 		}
 	],
@@ -42,7 +42,7 @@
 	// are set with `wrangler secret put` and are never committed.
 	"vars": {
 		"ENVIRONMENT": "production",
-		"BETTER_AUTH_URL": "https://hackradar.example.workers.dev",
+		"BETTER_AUTH_URL": "https://hackradar.shahi-pushkar2008.workers.dev",
 		"TRUSTED_ORIGINS": "",
 		"EMAIL_FROM": ""
 	},
