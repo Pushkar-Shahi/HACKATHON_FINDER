@@ -3,20 +3,22 @@
 	"name": "hackradar",
 	"main": "./src/worker/index.ts",
 	"compatibility_date": "2026-08-01",
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"observability": {
 		"enabled": true
 	},
 	"upload_source_maps": true,
-
 	// The React SPA is served by Workers Static Assets. Every /api/* request is
 	// routed to the Worker first; any other path that is not a file falls back
 	// to index.html so client-side routes (e.g. /discover) never 404.
 	"assets": {
 		"not_found_handling": "single-page-application",
-		"run_worker_first": ["/api/*"]
+		"run_worker_first": [
+			"/api/*"
+		]
 	},
-
 	// Production D1 database. Create it with:
 	//   npx wrangler d1 create hackradar-db
 	// then paste the returned database_id below. Local development does not need
@@ -29,15 +31,16 @@
 			"migrations_dir": "drizzle/migrations"
 		}
 	],
-
 	// Cron Triggers run in UTC.
 	//  - "15 */6 * * *": provider synchronization (only providers with an
 	//    authorized feed configured are contacted; manual-mode providers are skipped)
 	//  - "5 * * * *": hourly reminder scheduling + in-app/email delivery
 	"triggers": {
-		"crons": ["15 */6 * * *", "5 * * * *"]
+		"crons": [
+			"15 */6 * * *",
+			"5 * * * *"
+		]
 	},
-
 	// Non-secret configuration. Secrets (BETTER_AUTH_SECRET, RESEND_API_KEY, ...)
 	// are set with `wrangler secret put` and are never committed.
 	"vars": {
@@ -46,7 +49,6 @@
 		"TRUSTED_ORIGINS": "",
 		"EMAIL_FROM": ""
 	},
-
 	"env": {
 		// Non-production environment with its own D1 database so preview deploys
 		// never touch production data. Build with CLOUDFLARE_ENV=staging.
@@ -61,7 +63,10 @@
 				}
 			],
 			"triggers": {
-				"crons": ["15 */6 * * *", "5 * * * *"]
+				"crons": [
+					"15 */6 * * *",
+					"5 * * * *"
+				]
 			},
 			"vars": {
 				"ENVIRONMENT": "staging",
