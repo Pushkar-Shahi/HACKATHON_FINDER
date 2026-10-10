@@ -1,0 +1,12 @@
+{
+	"extends": "./tsconfig.node.json",
+	"compilerOptions": {
+		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.test.tsbuildinfo",
+		"types": ["./worker-configuration.d.ts", "@cloudflare/vitest-plugin/types"],
+		"baseUrl": ".",
+		"paths": {
+			"@shared/*": ["./src/shared/*"]
+		}
+	},
+	"include": ["tests/unit/*.test.ts", "tests/api", "tests/integration", "tests/setup", "tests/helpers.ts", "src/worker", "src/shared"]
+}
